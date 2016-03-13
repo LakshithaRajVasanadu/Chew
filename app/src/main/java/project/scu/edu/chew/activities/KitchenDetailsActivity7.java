@@ -37,6 +37,7 @@ public class KitchenDetailsActivity7 extends AppCompatActivity {
     Button addMap;
 
     private final int REQUEST_CODE_CALL = 1;
+    Integer images;
 
     ReviewRatings reviewDetails = new ReviewRatings();
     List<ReviewRatings> reviews = new ArrayList<ReviewRatings>();
@@ -210,14 +211,16 @@ public class KitchenDetailsActivity7 extends AppCompatActivity {
 
     public void addImagesToGallery() {
         userPhotosLayout = (LinearLayout) findViewById(R.id.userPhotosLayout);
-        for(Integer images : image) {
-            userPhotosLayout.addView(getImageView(images));
-            userPhotosLayout.setOnClickListener(new View.OnClickListener() {
+        for(final Integer images : image) {
+            View singleImageView = getImageView(images);
+            userPhotosLayout.addView(singleImageView);
+            this.images = images;
+            singleImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getBaseContext(), PhotoActivity.class);
                     if (intent != null)
-                        intent.putExtra("image", image);
+                        intent.putExtra("image", images);
                         startActivity(intent);
 
                 }
