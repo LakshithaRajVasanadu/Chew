@@ -212,8 +212,20 @@ public class KitchenDetailsActivity7 extends AppCompatActivity {
         userPhotosLayout = (LinearLayout) findViewById(R.id.userPhotosLayout);
         for(Integer images : image) {
             userPhotosLayout.addView(getImageView(images));
+            userPhotosLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getBaseContext(), PhotoActivity.class);
+                    if (intent != null)
+                        intent.putExtra("image", image);
+                        startActivity(intent);
+
+                }
+            });
         }
     }
+
+
 
     public View getImageView(Integer images) {
         ImageView imageView = new ImageView(getApplicationContext());
