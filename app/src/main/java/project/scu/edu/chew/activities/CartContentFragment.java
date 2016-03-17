@@ -58,7 +58,7 @@ public class CartContentFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity().getBaseContext(), "Order has been placed", Toast.LENGTH_SHORT).show();
-                ((CartActivity10)getActivity()).showNotification(v);
+                ((CartActivity10)getActivity()).showNotification();
             }
         });
 

@@ -11,6 +11,7 @@
     <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <permission
         android:name="com.example.yourpackage.permission.MAPS_RECEIVE"
@@ -176,7 +177,8 @@
             android:name=".activities.PhotoActivity"
             android:label="@string/title_activity_photo"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.BaseListeningActivity"></activity>
     </application>
 
 </manifest>

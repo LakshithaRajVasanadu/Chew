@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -31,6 +32,8 @@ public class BaseActivity extends AppCompatActivity {
     Button navigationButton;
     private ArrayAdapter<String> mAdapter;
     private ActionBarDrawerToggle mDrawerToggle;
+
+    private LinearLayout content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +54,13 @@ public class BaseActivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     System.out.println("Position: " + position);
 
-                    if(position == 0) {
+                    if (position == 0) {
                         Intent intent = new Intent(BaseActivity.this, HCListActivity5.class);
                         if (intent != null)
                             startActivity(intent);
                     }
 
-                    if(position == 1) {
+                    if (position == 1) {
 //                        Intent shareIntent = new Intent();
 //                        shareIntent.setAction(Intent.ACTION_SEND);
 //                        shareIntent.setType("text/plain");
@@ -81,37 +84,37 @@ public class BaseActivity extends AppCompatActivity {
 //                            startActivity(chooserIntent);
 //                        }
 
-                        List<Intent> targetShareIntents=new ArrayList<Intent>();
+                        List<Intent> targetShareIntents = new ArrayList<Intent>();
                         Intent appIntent1 = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/"));
                         appIntent1.putExtra(Intent.EXTRA_TEXT, "Hello, from gobble");
-                        if(appIntent1 != null)
+                        if (appIntent1 != null)
                             targetShareIntents.add(appIntent1);
 
                         Intent appIntent2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/"));
                         appIntent2.putExtra(Intent.EXTRA_TEXT, "Hello, from gobble");
-                        if(appIntent2 != null)
+                        if (appIntent2 != null)
                             targetShareIntents.add(appIntent2);
 
-                        if(!targetShareIntents.isEmpty()) {
+                        if (!targetShareIntents.isEmpty()) {
                             Intent chooserIntent = Intent.createChooser(targetShareIntents.remove(0), "Share your thoughts");
                             chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetShareIntents.toArray(new Parcelable[]{}));
                             startActivity(chooserIntent);
                         }
                     }
 
-                    if(position == 2) {
+                    if (position == 2) {
                         Intent intent = new Intent(BaseActivity.this, AboutActivity.class);
                         if (intent != null)
                             startActivity(intent);
                     }
-                    if(position == 3) {
+                    if (position == 3) {
                         Intent intent = new Intent(BaseActivity.this, HelpActivity.class);
                         if (intent != null)
                             startActivity(intent);
                     }
 
 
-                    if(position == 4) {
+                    if (position == 4) {
                         signOut();
                     }
 
@@ -119,10 +122,40 @@ public class BaseActivity extends AppCompatActivity {
                 }
             });
 
+       // content = (LinearLayout)findViewById(R.id.commands);
+
+//// The following 3 lines are needed in every onCreate method of a ListeningActivity
+//        context = getApplicationContext(); // Needs to be set
+//        VoiceRecognitionListener.getInstance().setListener(this); // Here we set the current listener
+//        startListening(); // starts listening
+
 
         }
 
-        private void addDrawerItems() {
+//    @Override
+//    public void processVoiceCommands(String... voiceCommands) {
+//        String finalCommand = null;
+//        // content.removeAllViews();
+//        for (String command : voiceCommands) {
+//            TextView txt = new TextView(getApplicationContext());
+//            txt.setText(command);
+//            txt.setTextSize(20);
+//            txt.setTextColor(Color.BLACK);
+//            txt.setGravity(Gravity.CENTER);
+//
+//            if(command.equalsIgnoreCase("place order")) {
+//                finalCommand = command;
+//            }
+//            // content.addView(txt);
+//
+//
+//            //Toast.makeText(BaseActivity.this, txt.getText().toString(), Toast.LENGTH_SHORT).show();
+//        }
+//        System.out.println("Here....." + finalCommand);
+//        restartListeningService();
+//    }
+
+    private void addDrawerItems() {
             String[] itemsArray = { "Home", "Feedback", "About", "Help", "Sign Out" };
             mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itemsArray);
             mDrawerList.setAdapter(mAdapter);
