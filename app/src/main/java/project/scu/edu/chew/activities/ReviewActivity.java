@@ -29,6 +29,7 @@ import java.io.ByteArrayOutputStream;
 import project.scu.edu.chew.R;
 import project.scu.edu.chew.database.ReviewRatings;
 import project.scu.edu.chew.database.User;
+import project.scu.edu.chew.models.HomeCook;
 import project.scu.edu.chew.models.UserSession;
 
 // Add New Review Screen - Activity to add a new review, rating and upload pics.
@@ -103,7 +104,10 @@ public class ReviewActivity extends AppCompatActivity {
                 float ratings = ratingBar.getRating();
                 String userName = userNameView.getText().toString();
 
-                final ReviewRatings reviewRatings = new ReviewRatings(userName, ratings, reviews, imageEncoded);
+                HomeCook homeCook = (HomeCook)getIntent().getSerializableExtra("homecook");
+                String homecookName = homeCook.getName();
+
+                final ReviewRatings reviewRatings = new ReviewRatings(userName, ratings, reviews, imageEncoded, homecookName);
                 reviewRef.push().setValue(reviewRatings);
                 reviewRef.addValueEventListener(new ValueEventListener() {
                     @Override

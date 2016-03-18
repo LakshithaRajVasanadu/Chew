@@ -102,7 +102,9 @@ public class MainKitchenActivity6 extends AppCompatActivity {
                 reviews = new ArrayList<ReviewRatings>();
                 for (DataSnapshot item : dataSnapshot.getChildren()) {
                     dbReviewRating = (ReviewRatings) item.getValue(ReviewRatings.class);
-                    reviews.add(dbReviewRating);
+                    if(dbReviewRating.getHomeCookName().equalsIgnoreCase(homeCook.getName())) {
+                        reviews.add(dbReviewRating);
+                    }
                 }
             }
 

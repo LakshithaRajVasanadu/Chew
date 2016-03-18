@@ -161,6 +161,7 @@ public class KitchenDetailsActivity7 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), ReviewActivity.class);
+                intent.putExtra("homecook", homeCook);
                 if (intent != null)
                     startActivity(intent);
             }
