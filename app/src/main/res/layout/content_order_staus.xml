@@ -14,55 +14,28 @@
     tools:context="project.scu.edu.chew.activities.OrderStausActivity"
     tools:showIn="@layout/activity_order_staus">
 
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:background="@drawable/gobble_logo"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Thank You for your Order!"
-        android:layout_marginTop="20dp"
+        android:text="Your order is ready for pickup."
+        android:layout_marginTop="80dp"
         android:layout_marginBottom="30dp"
+        android:layout_gravity="center"
         android:id="@+id/thanks"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Your payment has been received"
-        android:layout_marginBottom="30dp"
-        android:id="@+id/pay"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="The order placed will be ready in 30 mins"
-        android:id="@+id/time"
-        android:layout_marginBottom="130dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Would you like to set an alarm?"
-        android:id="@+id/alarm"
-        android:layout_marginBottom="130dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/image"
-        android:layout_marginLeft="125dp"
-        android:background="@drawable/check_mark"/>
-
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:background="@drawable/hurray"/>
 
 </LinearLayout>

@@ -1,16 +1,22 @@
 package project.scu.edu.chew.activities;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
@@ -35,6 +41,12 @@ public class CartActivity10 extends BaseActivity implements IVoiceControl {
     Context context;
     protected SpeechRecognizer sr;
 
+    final static private long ONE_SECOND = 1000;
+    final static private long TWENTY_SECONDS = ONE_SECOND * 20;
+    PendingIntent pi;
+    BroadcastReceiver br;
+    AlarmManager am;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +55,7 @@ public class CartActivity10 extends BaseActivity implements IVoiceControl {
         setSupportActionBar(toolbar);
         getSupportActionBar().hide();
 
-
+        setup();
         TopToolbarFragment toolbarFragment = new TopToolbarFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.toptoolbarcontainer, toolbarFragment).commit();
 
@@ -59,11 +71,13 @@ public class CartActivity10 extends BaseActivity implements IVoiceControl {
         VoiceRecognitionListener.getInstance().setListener(this); // Here we set the current listener
         startListening(); // starts listening
 
+
+
     }
 
     public void showNotification()
     {
-        clearCart();
+
 //        AudioManager amanager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
 //        amanager.setStreamMute(AudioManager.STREAM_MUSIC, false);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
@@ -176,7 +190,9 @@ public class CartActivity10 extends BaseActivity implements IVoiceControl {
 
             if(command.equalsIgnoreCase("place order")) {
                 finalCommand = command;
-                showNotification();
+                clearCart();
+                showAlert();
+                //showNotification();
 
             }
             // content.addView(txt);
@@ -243,6 +259,41 @@ public class CartActivity10 extends BaseActivity implements IVoiceControl {
         CartAdapter adapter = (CartAdapter)listView.getAdapter();
         adapter.notifyDataSetChanged();
         listView.setAdapter(null);
+    }
+
+    public void showAlert() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("NOTIFICATION");
+        alertDialog.setMessage("Thank you for Placing order! Would you like to set a reminder once your order is ready for pick up?");
+        alertDialog.setIcon(R.drawable.gobble_logo);
+
+        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() +
+                        TWENTY_SECONDS, pi);
+                ;
+            }
+        });
+        alertDialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface arg0, int arg1) {
+            }
+        });
+        alertDialog.show();
+    }
+
+    private void setup() {
+        br = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context c, Intent i) {
+                //Toast.makeText(c, "Your order has been placed", Toast.LENGTH_LONG).show();
+               showNotification();
+            }
+        };
+        registerReceiver(br, new IntentFilter("com.authorwjf.wakeywakey"));
+        pi = PendingIntent.getBroadcast( this, 0, new Intent("com.authorwjf.wakeywakey"),
+                0 );
+        am = (AlarmManager)(getSystemService(Context.ALARM_SERVICE ));
     }
 
 }

@@ -4,21 +4,17 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -68,33 +64,34 @@ public class CartContentFragment extends Fragment {
 //        foodItems.add(new FoodItem("Pizza", "food11.jpg"));
 
         listView.setAdapter(new CartAdapter(getActivity().getBaseContext(), R.layout.cart_list_row, cartItems, gobblePreferences, totalText, cartItemMsg));
-        orderButton = (Button) view.findViewById(R.id.orderButton);
-        orderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
-                alertDialog.setTitle("NOTIFICATION");
-                alertDialog.setMessage("WOULD YOU LIKE TO SET AN ALARM TO REMIND YOU WHEN YOUR ORDER IS READY?");
-                alertDialog.setIcon(R.drawable.gobble_logo);
-                alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() +
-                                TWENTY_SECONDS, pi);
-                        ;
-                    }
-                });
-                alertDialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface arg0, int arg1) {
-                    }
-                });
-                alertDialog.show();
+       // orderButton = (Button) view.findViewById(R.id.orderButton);
+//        orderButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+//                alertDialog.setTitle("NOTIFICATION");
+//                alertDialog.setMessage("WOULD YOU LIKE TO SET AN ALARM TO REMIND YOU WHEN YOUR ORDER IS READY?");
+//                alertDialog.setIcon(R.drawable.gobble_logo);
+//
+//                alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface arg0, int arg1) {
+//                        am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() +
+//                                TWENTY_SECONDS, pi);
+//                        ;
+//                    }
+//                });
+//                alertDialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+//
+//                    public void onClick(DialogInterface arg0, int arg1) {
+//                    }
+//                });
+//                alertDialog.show();
 
 
                 //Toast.makeText(getActivity().getBaseContext(), "Order has been placed", Toast.LENGTH_SHORT).show();
                // ((CartActivity10)getActivity()).showNotification();
-            }
-        });
+//            }
+//        });
 
         if(cartItems.size() <= 0) {
             cartItemMsg.setVisibility(View.VISIBLE);
