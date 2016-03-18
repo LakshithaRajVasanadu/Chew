@@ -240,7 +240,7 @@ public class CartActivity10 extends BaseActivity implements IVoiceControl {
         TextView totalText = (TextView) findViewById(R.id.ctotal);
         TextView cartItemMsg = (TextView) findViewById(R.id.noItemMsg);
 
-        totalText.setText("Total: $" + Double.toString(userSession.getTotalValueInCart()));
+        totalText.setText("Total: $" + Double.toString(Math.round(userSession.getTotalValueInCart())));
 
         userSession.setBadgeCount(0);
 
