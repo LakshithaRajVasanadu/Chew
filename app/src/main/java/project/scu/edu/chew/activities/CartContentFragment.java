@@ -1,8 +1,17 @@
 package project.scu.edu.chew.activities;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +36,12 @@ import project.scu.edu.chew.models.UserSession;
 public class CartContentFragment extends Fragment {
 
     Button orderButton;
+
+    final static private long ONE_SECOND = 1000;
+    final static private long TWENTY_SECONDS = ONE_SECOND * 20;
+    PendingIntent pi;
+    BroadcastReceiver br;
+    AlarmManager am;
     public CartContentFragment() {
         // Required empty public constructor
     }
@@ -43,7 +58,7 @@ public class CartContentFragment extends Fragment {
         String json = gobblePreferences.getString("currentSession", "");
         UserSession userSession = gson.fromJson(json, UserSession.class);
         List<CartItem> cartItems = userSession.getCartItems();
-
+        setup();
         TextView totalText = (TextView) view.findViewById(R.id.ctotal);
         TextView cartItemMsg = (TextView) view.findViewById(R.id.noItemMsg);
 
@@ -57,8 +72,27 @@ public class CartContentFragment extends Fragment {
         orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getBaseContext(), "Order has been placed", Toast.LENGTH_SHORT).show();
-                ((CartActivity10)getActivity()).showNotification();
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+                alertDialog.setTitle("NOTIFICATION");
+                alertDialog.setMessage("WOULD YOU LIKE TO SET AN ALARM TO REMIND YOU WHEN YOUR ORDER IS READY?");
+                alertDialog.setIcon(R.drawable.gobble_logo);
+                alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        am.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() +
+                                TWENTY_SECONDS, pi);
+                        ;
+                    }
+                });
+                alertDialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+                    }
+                });
+                alertDialog.show();
+
+
+                //Toast.makeText(getActivity().getBaseContext(), "Order has been placed", Toast.LENGTH_SHORT).show();
+               // ((CartActivity10)getActivity()).showNotification();
             }
         });
 
@@ -75,5 +109,17 @@ public class CartContentFragment extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
-
+    private void setup() {
+        br = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context c, Intent i) {
+                //Toast.makeText(c, "Your order has been placed", Toast.LENGTH_LONG).show();
+                ((CartActivity10) getActivity()).showNotification();
+            }
+        };
+        getActivity().registerReceiver(br, new IntentFilter("com.authorwjf.wakeywakey"));
+        pi = PendingIntent.getBroadcast( getActivity(), 0, new Intent("com.authorwjf.wakeywakey"),
+                0 );
+        am = (AlarmManager)(getActivity().getSystemService(Context.ALARM_SERVICE ));
+    }
 }
