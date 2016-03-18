@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.media.AudioManager;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
@@ -51,9 +50,9 @@ public class CartActivity10 extends BaseActivity implements IVoiceControl {
         CartContentFragment cartContentFragment = new CartContentFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.mainContentcontainer, cartContentFragment).commit();
 
-
-        AudioManager amanager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        amanager.setStreamMute(AudioManager.STREAM_MUSIC, true);
+//
+//        AudioManager amanager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
+//        amanager.setStreamMute(AudioManager.STREAM_MUSIC, true);
 
         // The following 3 lines are needed in every onCreate method of a ListeningActivity
         context = getApplicationContext(); // Needs to be set
@@ -65,8 +64,8 @@ public class CartActivity10 extends BaseActivity implements IVoiceControl {
     public void showNotification()
     {
         clearCart();
-        AudioManager amanager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        amanager.setStreamMute(AudioManager.STREAM_MUSIC, false);
+//        AudioManager amanager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
+//        amanager.setStreamMute(AudioManager.STREAM_MUSIC, false);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
 
         mBuilder.setSmallIcon(R.drawable.gobble_logo).setColor(Color.rgb(255, 153, 0));
@@ -151,8 +150,8 @@ public class CartActivity10 extends BaseActivity implements IVoiceControl {
 
     @Override
     protected void onPause() {
-        AudioManager amanager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        amanager.setStreamMute(AudioManager.STREAM_MUSIC, true);
+//        AudioManager amanager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
+//        amanager.setStreamMute(AudioManager.STREAM_MUSIC, true);
         if(sr!=null){
             sr.stopListening();
             sr.cancel();

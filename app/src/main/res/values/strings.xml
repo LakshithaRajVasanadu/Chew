@@ -144,6 +144,8 @@
     <string name="about_text">Gobble is an awesome app that has registered home cooks. For a user that is craving home cooked food can visit our app, choose to either create and account and login or browse as a guest. The app will provide a list of home cooks that serve variety of cuisines. A user can browse through home cooks and can place an order from the home cooks menu.</string>
     <string name="title_activity_help">Help</string>
     <string name="title_activity_photo">Photo</string>
+    <string name="appwidget_text">Gobble</string>
+    <string name="add_widget">Add widget</string>
 
 
 </resources>

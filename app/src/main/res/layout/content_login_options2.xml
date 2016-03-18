@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/skipButton"
-            android:background="@color/brown"
+            android:backgroundTint="@color/brown"
             android:textColor="@color/yellow"
             android:text="Skip" />
 
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:id="@+id/loginButton"
-            android:background="@color/brown"
+            android:backgroundTint="@color/brown"
             android:textColor="@color/yellow"
             android:text="Login" />
 
@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/signUpButton"
-            android:background="@color/brown"
+            android:backgroundTint="@color/brown"
             android:textColor="@color/yellow"
             android:text="Sign up" />
 
