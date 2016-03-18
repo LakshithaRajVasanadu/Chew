@@ -44,7 +44,7 @@ public class TopToolbarFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getActivity().getBaseContext(), MapActivity.class);
+                Intent intent = new Intent(getActivity().getBaseContext(), NearestKitchenActivity.class);
                 if (intent != null)
                     startActivity(intent);
 

@@ -29,7 +29,7 @@ public class GobbleWidget extends AppWidgetProvider {
         PendingIntent pendingIntent2 = PendingIntent.getActivity(context, 0,	intent2, 0);
         views.setOnClickPendingIntent(R.id.wcartButton, pendingIntent2);
 
-        Intent intent3 = new Intent(context, MapActivity.class);
+        Intent intent3 = new Intent(context, NearestKitchenActivity.class);
         PendingIntent pendingIntent3 = PendingIntent.getActivity(context, 0,	intent3, 0);
         views.setOnClickPendingIntent(R.id.wmapButton, pendingIntent3);
 
