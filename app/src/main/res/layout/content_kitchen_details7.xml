@@ -219,7 +219,7 @@
                 android:orientation="horizontal"
                 android:id="@+id/menuLayout">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:duplicateParentState="true"
@@ -231,11 +231,13 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginLeft="7dp"
                         android:duplicateParentState="true"
+                        android:id="@+id/imageMenu"
                         android:clickable="false"
                         android:background="@drawable/restaurant_menu_icon"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="37dp"
                         android:duplicateParentState="true"
                         android:clickable="false"
                         android:orientation="vertical">
@@ -247,7 +249,15 @@
                             android:text= "Explore the Menu"
                             android:textStyle="bold"/>
                     </LinearLayout>
-                </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/arrows"
+                        />
+                </RelativeLayout>
 
 
             </LinearLayout>

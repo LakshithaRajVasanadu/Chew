@@ -97,6 +97,7 @@ public class CartContentFragment extends Fragment {
             cartItemMsg.setVisibility(View.VISIBLE);
         } else {
             cartItemMsg.setVisibility(View.INVISIBLE);
+            ((CartActivity10)getActivity()).startListening(); // starts listening
         }
 
 

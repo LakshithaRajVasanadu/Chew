@@ -69,7 +69,7 @@ public class CartActivity10 extends BaseActivity implements IVoiceControl {
         // The following 3 lines are needed in every onCreate method of a ListeningActivity
         context = getApplicationContext(); // Needs to be set
         VoiceRecognitionListener.getInstance().setListener(this); // Here we set the current listener
-        startListening(); // starts listening
+
 
 
 

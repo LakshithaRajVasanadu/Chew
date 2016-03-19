@@ -54,10 +54,7 @@ public class MainKitchenActivity6 extends AppCompatActivity implements GoogleApi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_kitchen6);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().hide();
+
 
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -72,7 +69,12 @@ public class MainKitchenActivity6 extends AppCompatActivity implements GoogleApi
         homeCook = (HomeCook)i.getSerializableExtra("homecook");
 
         homeCookLatLng = (KitchenAddressMapsActivity.getAddressFromLocation1(homeCook.getAddress(), getApplicationContext()));
+        
+        setContentView(R.layout.activity_main_kitchen6);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().hide();
 
         kitchenLayout = (LinearLayout) findViewById(R.id.kitchenLayout);
         kitchenLayout.setOnClickListener(new View.OnClickListener() {
