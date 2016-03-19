@@ -51,6 +51,8 @@
             style="@style/foodRatingBarStandard"
             android:layout_marginLeft="15dp"
             android:rating="3.5"
+            android:isIndicator="true"
+            android:clickable="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 

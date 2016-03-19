@@ -58,7 +58,8 @@
             android:rating="3.5"
             android:duplicateParentState="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:isIndicator="true">
 
         </RatingBar>
 
