@@ -68,6 +68,9 @@ public class MainKitchenActivity6 extends AppCompatActivity implements GoogleApi
         Intent i = getIntent();
         homeCook = (HomeCook)i.getSerializableExtra("homecook");
 
+        System.out.println("Home cook name in MainKitchen" + homeCook.getName());
+        System.out.println("Home cook address in MainKitchen" + homeCook.getAddress());
+
         homeCookLatLng = (KitchenAddressMapsActivity.getAddressFromLocation1(homeCook.getAddress(), getApplicationContext()));
 
         setContentView(R.layout.activity_main_kitchen6);

@@ -147,8 +147,8 @@
                                 android:text= "500 E El Camino Real, Santa Clara, CA 95050"/>
                         </LinearLayout>
                         <Button
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="10dp"
                             android:background="@drawable/add_map"

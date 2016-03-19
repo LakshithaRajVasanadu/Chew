@@ -8,11 +8,11 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -52,20 +52,8 @@ public class SearchActivity extends AppCompatActivity {
         final List<HomeCook> homeCooks = new ArrayList<>();
         LoadData.populateData(homeCooks);
 
-        final SearchAdapter adapter = new SearchAdapter(this, homeCooks);
+        final SearchAdapter adapter = new SearchAdapter(this, homeCooks, listView);
         listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent intent = new Intent(SearchActivity.this, MainKitchenActivity6.class);
-                intent.putExtra("homecook", homeCooks.get(position));
-                if (intent != null)
-                    startActivity(intent);
-
-            }
-        });
 
         cookSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -79,6 +67,25 @@ public class SearchActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent intent = new Intent(SearchActivity.this, MainKitchenActivity6.class);
+
+                //New <code></code>
+                //HomeCook selectedHomeCook = (HomeCook)listView.getSelectedItem();
+                System.out.println("Homecook selectd in serach activity:" + homeCooks.get(position));
+
+                intent.putExtra("homecook", homeCooks.get(position));
+                if (intent != null)
+                    startActivity(intent);
+
+            }
+        });
+
+
 
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);

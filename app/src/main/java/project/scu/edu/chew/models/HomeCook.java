@@ -106,4 +106,18 @@ public class HomeCook implements Serializable{
     public void setCuisine(String cuisine) {
         this.cuisine = cuisine;
     }
+
+
+    public HomeCook (HomeCook homeCook) {
+        this.foodItems = homeCook.foodItems;
+        this.address = homeCook.address;
+        this.imagePath = homeCook.imagePath;
+        this.phone = homeCook.phone;
+        this.time = homeCook.time;
+        this.name = homeCook.name;
+        this.cuisine = homeCook.cuisine;
+        this.largeImage = homeCook.largeImage;
+        this.rating = homeCook.rating;
+        this.hsvList = homeCook.hsvList;
+    }
 }

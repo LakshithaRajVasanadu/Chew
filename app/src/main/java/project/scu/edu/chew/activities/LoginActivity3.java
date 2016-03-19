@@ -407,8 +407,9 @@ public class LoginActivity3 extends AppCompatActivity implements LoaderCallbacks
     public void startUserSession(String email) {
 
         User currentUser = LoginOptionsActivity2.getUser(email);
-        System.out.println("LOGIN" + currentUser.getId());
-        System.out.println(currentUser.getName());
+//        System.out.println("LOGIN" + currentUser.getId());
+//        System.out.println(currentUser.getName());
+
 
         SharedPreferences gobblePreferences = getSharedPreferences("GOBBLE_PREFS", MODE_PRIVATE);
         SharedPreferences.Editor editor = gobblePreferences.edit();
