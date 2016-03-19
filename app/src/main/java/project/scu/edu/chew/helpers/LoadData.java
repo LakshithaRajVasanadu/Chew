@@ -23,8 +23,21 @@ public class LoadData {
         homeCook.setAddress("1600 Amphitheatre Pkwy, Mountain View, CA 94043");
         homeCook.setTime("9:00AM - 1:00PM, 5:00PM - 10:00PM");
 
+        homeCook.getHsvList().add("chickenph1");
+        homeCook.getHsvList().add("tiramisuh1");
+        homeCook.getHsvList().add("chickenph2");
+        homeCook.getHsvList().add("pastah3");
+        homeCook.getHsvList().add("lasagnah1");
+        homeCook.getHsvList().add("mnch1");
+        homeCook.getHsvList().add("chickenph3");
+        homeCook.getHsvList().add("mnch2");
+        homeCook.getHsvList().add("pastah1");
+        homeCook.getHsvList().add("pastah2");
+        homeCook.getHsvList().add("pizzah1");
+        homeCook.getHsvList().add("tiramisuh2");
+        homeCook.getHsvList().add("pastah5");
         //#1
-        FoodItem foodItem = new FoodItem("Pizza", "food1");
+        FoodItem foodItem = new FoodItem("Pizza", "pizzam1");
         foodItem.setDescription("With mozzarella roasted red peppers and basil with alfredo and garlic spread ");
         foodItem.setPrice(10.50);
         foodItem.setServing("2-4");
@@ -39,7 +52,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#2
-        foodItem = new FoodItem("Pasta", "pasta1");
+        foodItem = new FoodItem("Pasta", "pastam1");
         foodItem.setDescription("Ziti, Prosciutto, Asiago Cheese & Red Pepper Cream Sauce");
         foodItem.setPrice(8.50);
         foodItem.setServing("1-2");
@@ -57,7 +70,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#3
-        foodItem = new FoodItem("Lasagna", "lasagne");
+        foodItem = new FoodItem("Lasagna", "lasagna1");
         foodItem.setDescription("Layered lasagne noodles, italian sausage and beef, ricotta cheese, tomato sauce and baked mozzarella and romano cheese");
         foodItem.setPrice(11.40);
         foodItem.setServing("3-4");
@@ -74,7 +87,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#4
-        foodItem = new FoodItem("Tiramisu", "tiramisu1");
+        foodItem = new FoodItem("Tiramisu", "tiramisum1");
         foodItem.setServing("1-2");
         foodItem.setReadyTime("20");
         foodItem.setDescription("Traditional Italian coffee cake- lady fingers dipped in expresso layered with marscapone cream and topped with cocca powder");
@@ -89,7 +102,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#5
-        foodItem = new FoodItem("Chicken Parmigiana", "chicken_parmigiana");
+        foodItem = new FoodItem("Chicken Parmigiana", "chickenp1");
         foodItem.setDescription("Mama’s tomato sauce, lightly fried chicken breast, roman and mozzerella cheese baked untill its golden brown");
         foodItem.setPrice(13.30);
         foodItem.setServing("2-3");
@@ -106,7 +119,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#6
-        foodItem = new FoodItem("Macaroni and Cheese", "macaroni_and_cheese");
+        foodItem = new FoodItem("Macaroni and Cheese", "macnc1");
         foodItem.setDescription("Elbow macaroni and yellow cheese");
         foodItem.setPrice(7.80);
         foodItem.setServing("1-2");
@@ -131,6 +144,10 @@ public class LoadData {
         homeCook.setTime("9:00 am to 10:00 pm");
         homeCook.setRating(4.5f);
 
+        homeCook.getHsvList().add("daalh1");
+        homeCook.getHsvList().add("parathah1");
+        homeCook.getHsvList().add("biryanih1");
+        homeCook.getHsvList().add("dosah1");
         homeCook.getHsvList().add("saag_paneer");
         homeCook.getHsvList().add("dosa");
         homeCook.getHsvList().add("rice_and_curry");
@@ -139,7 +156,7 @@ public class LoadData {
         homeCook.getHsvList().add("chicken_biryani");
 
         //#1
-        foodItem = new FoodItem("Saag Paneer", "saag_paneer");
+        foodItem = new FoodItem("Saag Paneer", "ppaneerm1");
         foodItem.setDescription("Spinach cooked with herbs, spices and traditional indian cheese");
         foodItem.setPrice(11.99);
         foodItem.setLongDescription("Saag paneer is a classic Indian dish of cooked spinach studded with cubes of fried " +
@@ -154,7 +171,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#2
-        foodItem = new FoodItem("Dosa", "dosa");
+        foodItem = new FoodItem("Dosa", "dosam1");
         foodItem.setDescription("stuffed with fillings of vegetables and served with sambar and chutney.");
         foodItem.setPrice(5.50);
         foodItem.setLongDescription("Dosa is a fermented crepe made from rice batter and black lentils.Sambar is a " +
@@ -169,8 +186,8 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#3
-        foodItem = new FoodItem("Rice and Curry", "rice_and_curry");
-        foodItem.setDescription("Larhe bowl of rice served with vegetable curry of your choice.");
+        foodItem = new FoodItem("Rice and Curry", "rncm1");
+        foodItem.setDescription("Large bowl of rice served with vegetable curry of your choice.");
         foodItem.setPrice(8.30);
         foodItem.setLongDescription("A large bowl of rice, most often boiled, but frequently fried. A vegetable curry, " +
                 "perhaps of green beans, jackfruit or leeks. ");
@@ -184,7 +201,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#4
-        foodItem = new FoodItem("Daal", "daal");
+        foodItem = new FoodItem("Daal", "daalm1");
         foodItem.setDescription("Black lentils and kidney beans in a savory tomato anion sauce.");
         foodItem.setPrice(4.50);
         foodItem.setLongDescription(" Thick Spicy stew made form lentils, dal and similar legumes and similar legumes .");
@@ -198,7 +215,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#5
-        foodItem = new FoodItem("Chicken Tikka Masala", "chickentikka_masala");
+        foodItem = new FoodItem("Chicken Tikka Masala", "chickentm1");
         foodItem.setDescription("Breast meat barbecued in tandoor oven, then cooked with bell pepper, onion, garlic, ginger, tomatoes, cream, and spices.");
         foodItem.setPrice(10.50);
         foodItem.setLongDescription("Chicken tikka masala is chicken tikka, chunks of chicken marinated in " +
@@ -215,7 +232,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#6
-        foodItem = new FoodItem("Chicken Biryani", "chicken_biryani");
+        foodItem = new FoodItem("Chicken Biryani", "chickenbm1");
         foodItem.setDescription("Fragrant long-grained rice is layered with meat that have been cooked in a mixture of spices.");
         foodItem.setPrice(13.25);
         foodItem.setLongDescription("The  biryani is light, less spicy and is easy to digest. Mutton is " +
@@ -238,13 +255,22 @@ public class LoadData {
         //AMERICAN ************************************************************************************************
         homeCook = new HomeCook("Albert's kitchen", "650-444-0320", "food12.jpg");
         homeCook.setCuisine("American");
-        homeCook.setLargeImage("albert_kitchen");
+        homeCook.setLargeImage("americankitchen");
         homeCook.setAddress("1690 S Bascom Ave, Campbell, CA");
         homeCook.setTime("9:00 am to 10:00 pm");
         homeCook.setRating(2.5f);
 
+        homeCook.getHsvList().add("breadh1");
+        homeCook.getHsvList().add("burgerh1");
+        homeCook.getHsvList().add("omeletteh1");
+        homeCook.getHsvList().add("omletteh2");
+        homeCook.getHsvList().add("omletteh3");
+        homeCook.getHsvList().add("saladh1");
+        homeCook.getHsvList().add("saladh2");
+        homeCook.getHsvList().add("saladh3");
+
         //#1
-        foodItem = new FoodItem("Blueberry pancakes", "pancakes");
+        foodItem = new FoodItem("Blueberry pancakes", "blueberrypm1");
         foodItem.setDescription("Buttermilk pancakes filled with plump blueberries and lightly dusted with powdered sugar. " +
                 "Served with whipped butter and hot blueberry compote.");
         foodItem.setPrice(4.30);
@@ -261,7 +287,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#2
-        foodItem = new FoodItem("Chicken Fajita Omelette", "chicken-fajita");
+        foodItem = new FoodItem("Chicken Fajita Omelette", "omlettem1");
         foodItem.setDescription("Filled with grilled fajita-seasoned chicken breast strips, fresh onions and " +
                 "green peppers with salsa, and a blend of cheeses. ");
         foodItem.setPrice(12.50);
@@ -279,7 +305,7 @@ public class LoadData {
 
 
         //#3
-        foodItem = new FoodItem("Chicken Burger", "hot-and-spicy-chicken-burger");
+        foodItem = new FoodItem("Chicken Burger", "burgerm1");
         foodItem.setDescription("Tender, juicy breast meat grilled to perfection, served with crisp lettuce, juicy " +
                 "tomato and mayonnaise on a toasted, buttered bun.");
         foodItem.setPrice(3.90);
@@ -295,12 +321,17 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#4
-        foodItem = new FoodItem("Citrus Chicken Pecan Salad", "citrus_salad");
+        foodItem = new FoodItem("Citrus Chicken Pecan Salad", "saladm1");
         foodItem.setDescription("Juicy grilled chicken, plump orange segments & crunchy candied pecans on a bed of crisp mixed greens. Tossed in our zesty orange vinaigrette and made-to-order.");
         foodItem.setPrice(7.50);
         foodItem.setServing("1-2");
         foodItem.setReadyTime("10");
-        foodItem.setLongDescription("");
+        foodItem.setLongDescription("A salad is a dish consisting of small pieces of food, which may be mixed with a sauce " +
+                "or salad dressing. They are typically served cold. Salads can incorporate a variety of foods including vegetables, " +
+                "fruits, cheese, cooked meat, eggs and grains. Garden salads use a base of leafy greens; they are common enough " +
+                "that the word salad alone often refers specifically to garden salads. Other types include bean salad, tuna salad, " +
+                "fattoush, Greek salad, and somen salad. The sauce used to flavor a salad is commonly called a salad dressing; " +
+                "well-known types include ranch, Thousand Island, and vinaigrette.");
         foodItem.getNutritionTable().put("Calories", "660g");
         foodItem.getNutritionTable().put("Carbohydrates", "43g");
         foodItem.getNutritionTable().put("Protein", "35g");
@@ -315,13 +346,24 @@ public class LoadData {
         //MEXICAN ************************************************************************************************
         homeCook = new HomeCook("Liliana's kitchen", "312-623-7446", "tacos.jpg");
         homeCook.setCuisine("Mexican");
-        homeCook.setLargeImage("liliana_kitchen");
+        homeCook.setLargeImage("mexicankitchen");
         homeCook.setAddress("1105 W El Camino Real, Sunnyvale, CA 94087");
         homeCook.setTime("9:00 am to 10:00 pm");
         homeCook.setRating(3.5f);
 
+        homeCook.getHsvList().add("burritoh1");
+        homeCook.getHsvList().add("chickenh1");
+        homeCook.getHsvList().add("enchiladash1");
+        homeCook.getHsvList().add("burritoh2");
+        homeCook.getHsvList().add("flanh1");
+        homeCook.getHsvList().add("nachosh1");
+        homeCook.getHsvList().add("quesoh1");
+        homeCook.getHsvList().add("chickenh2");
+        homeCook.getHsvList().add("quessadilah1");
+        homeCook.getHsvList().add("tacosh1");
+
         //#1
-        foodItem = new FoodItem("Burrito", "heartyeggburritos");
+        foodItem = new FoodItem("Burrito", "burritom1");
         foodItem.setDescription("fire grilled chicken or Baja shrimp , rice, pinto beans, pico de gallo salsa, " +
                 "sour cream, fresh cilantro, melted jack cheese and a smoky chipotle salsa roja rolled in a grilled tortilla.");
         foodItem.setPrice(8.50);
@@ -337,7 +379,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#2
-        foodItem = new FoodItem("Tacos", "tacos");
+        foodItem = new FoodItem("Tacos", "tacosm1");
         foodItem.setDescription("Cheese, meat choice, de gallo, guacamole sour cream,salso on soft corn tortilla. ");
         foodItem.setPrice(2.70);
         foodItem.setServing("1-2");
@@ -353,7 +395,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#3
-        foodItem = new FoodItem("Enchiladas", "beef_enchiladas");
+        foodItem = new FoodItem("Enchiladas", "enchiladasm1");
         foodItem.setDescription("Dipped tortilla in red sauce and fried filled with your choice of fillings ");
         foodItem.setPrice(6.50);
         foodItem.setServing("2-3");
@@ -368,7 +410,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#4
-        foodItem = new FoodItem("Chicken Quesadilla ", "cheesy-chicken-quesadillas_large");
+        foodItem = new FoodItem("Chicken Quesadilla ", "quessadilam1");
         foodItem.setDescription("Flour tortillas filled with mixed cheeses, pico de gallo and chicken. They are " +
                 "grilled to order and served with choice of sour cream or guacamole or both.");
         foodItem.setPrice(10.20);
@@ -385,7 +427,7 @@ public class LoadData {
 
 
         //#5
-        foodItem = new FoodItem("Oaxacan Coconut Flan ", "mexicandesset");
+        foodItem = new FoodItem("Oaxacan Coconut Flan", "flanm1");
         foodItem.setDescription("This community-size flan uses cream of coconut and toasted coconut to give it tropical flavor.");
         foodItem.setPrice(5.40);
         foodItem.setServing("1-2");
@@ -400,7 +442,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#6
-        foodItem = new FoodItem("Chile Con Queso", "");
+        foodItem = new FoodItem("Chile Con Queso", "quesom1");
         foodItem.setDescription("Cheese melted with tomatoes onions and spices.");
         foodItem.setPrice(8.70);
         foodItem.setServing("1-2");
@@ -415,7 +457,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#7
-        foodItem = new FoodItem("Super Nachos", "");
+        foodItem = new FoodItem("Super Nachos", "nachosm1");
         foodItem.setDescription("Tortilla chips topeed with beaf,beans and cheese sauce covered with lettuce, tomatoes and sour cream.");
         foodItem.setPrice(8.70);
         foodItem.setServing("1-2");
@@ -434,7 +476,7 @@ public class LoadData {
 
         //CHINESE ************************************************************************************************
         homeCook = new HomeCook("Wang's Kitchen", "408-433-9626", "food1.jpg");
-        homeCook.setLargeImage("wangs_kitchen");
+        homeCook.setLargeImage("chinesekitchen");
         homeCook.setCuisine("Chinese");
         homeCook.setAddress("50 University Ave #260, Los Gatos, CA 95030");
         homeCook.setTime("11:30 am to 10:00 pm");
@@ -448,9 +490,13 @@ public class LoadData {
         homeCook.getHsvList().add("sfried_rice");
         homeCook.getHsvList().add("hakka_noodles");
         homeCook.getHsvList().add("chowmein");
+        homeCook.getHsvList().add("riceh1");
+        homeCook.getHsvList().add("sizzlerh1");
+        homeCook.getHsvList().add("souph1");
+        homeCook.getHsvList().add("souph2");
 
         //#1
-        foodItem = new FoodItem("Manchow soup", "manchow_soup");
+        foodItem = new FoodItem("Manchow soup", "manchowm1");
         foodItem.setDescription("Moderately Spiced chicken and vegetable broth topped with crispy noodles");
         foodItem.setPrice(9.99);
         foodItem.setServing("1-2");
@@ -469,7 +515,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#2
-        foodItem = new FoodItem("Chicken Wonton Soup", "wonton_soup");
+        foodItem = new FoodItem("Chicken Wonton Soup", "wontonm1");
         foodItem.setDescription("Home Made Chicken wontons in a delicate clear soup");
         foodItem.setPrice(9.99);
         foodItem.setServing("1-2");
@@ -490,7 +536,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#3
-        foodItem = new FoodItem("Chicken spring roll", "spring_roll");
+        foodItem = new FoodItem("Chicken spring roll", "springrollm1");
         foodItem.setDescription("Spring rolls stuffed with julienne of vegetables, chicken and fried");
         foodItem.setPrice(5.99);
         foodItem.setServing("1-2");
@@ -512,7 +558,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#4
-        foodItem = new FoodItem("Golden fried calamari", "calamari");
+        foodItem = new FoodItem("Golden fried calamari", "calamarim1");
         foodItem.setDescription("Batter fried calamari strips");
         foodItem.setPrice(10.99);
         foodItem.setServing("2-3");
@@ -533,7 +579,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#5
-        foodItem = new FoodItem("Chicken Sizzler", "sizzler");
+        foodItem = new FoodItem("Chicken Sizzler", "sizzlerm1");
         foodItem.setDescription("Stir-fried shredded chicken with mixed vegetables in a blend of special sauces");
         foodItem.setPrice(15.99);
         foodItem.setServing("2-4");
@@ -552,7 +598,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#6
-        foodItem = new FoodItem("Szechwan fried rice", "sfried_rice");
+        foodItem = new FoodItem("Szechwan fried rice", "ricem1");
         foodItem.setDescription("Long grain rice tossed with spicy Szechwan sauce");
         foodItem.setPrice(9.49);
         foodItem.setServing("1-2");
@@ -570,7 +616,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#7
-        foodItem = new FoodItem("Hakka noodles", "hakka_noodles");
+        foodItem = new FoodItem("Hakka noodles", "hakkam1");
         foodItem.setDescription("Soft fried noodles with shredded vegetables and beans sprout");
         foodItem.setPrice(8.99);
         foodItem.setServing("1-2");
@@ -586,12 +632,12 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#8
-        foodItem = new FoodItem("Lo-Mein", "chowmein");
+        foodItem = new FoodItem("Lo-Mein", "meinm1");
         foodItem.setDescription("Savory soy sauce tossed with stir-fried noodles, julienned carrots, mushrooms and cabbage");
         foodItem.setPrice(8.49);
         foodItem.setServing("3-4");
         foodItem.setReadyTime("45");
-        foodItem.setDescription("The dish is popular throughout the Chinese diaspora and appears on the menus of " +
+        foodItem.setLongDescription("The dish is popular throughout the Chinese diaspora and appears on the menus of " +
                 "Chinese restaurants. It is a stir-fried dish consisting of noodles, meat (chicken being most common but pork, " +
                 "beef, shrimp or tofu sometimes being substituted), onions and celery. It is often served as a specific dish at " +
                 "westernized Chinese restaurants.");
@@ -614,6 +660,13 @@ public class LoadData {
         homeCook.setTime("10:00AM – 10:00PM");
         homeCook.setRating(3.5f);
 
+        homeCook.getHsvList().add("banhh1");
+        homeCook.getHsvList().add("banhh2");
+        homeCook.getHsvList().add("chaoh1");
+        homeCook.getHsvList().add("chaoh2");
+        homeCook.getHsvList().add("comh1");
+        homeCook.getHsvList().add("comhh1");
+
         //#1
         foodItem = new FoodItem("Banh Mi Bo Kho", "banh_mi");
         foodItem.setDescription("Beef Stew with Baguette");
@@ -633,7 +686,6 @@ public class LoadData {
         foodItem.getNutritionTable().put("Fat", "12g");
         foodItem.getNutritionTable().put("Fiber", "2.3g");
         homeCook.getFoodItems().add(foodItem);
-
 
         //#2
         foodItem = new FoodItem("Cháo Gà", "chao_ga");
@@ -696,14 +748,20 @@ public class LoadData {
         //VIETNAMESE ENDS
 
 
-
         //JAPANESE STARTS  ************************************************************************************************
         homeCook = new HomeCook("Chiko's Kitchen", "660-365-0801", "ramen.jpg");
         homeCook.setCuisine("Japanese");
-        homeCook.setLargeImage("chicko_kitchen");
+        homeCook.setLargeImage("japanesekitchen1");
         homeCook.setRating(5f);
         homeCook.setAddress("300 Santana Row, San Jose, CA 95128");
         homeCook.setTime("10:00AM – 1:00PM, 5:00PM - 10:00PM");
+
+        homeCook.getHsvList().add("gingerporkh1");
+        homeCook.getHsvList().add("honeysoyh1");
+        homeCook.getHsvList().add("honeysoyh3");
+        homeCook.getHsvList().add("sushih1");
+        homeCook.getHsvList().add("honeysoyh2");
+        homeCook.getHsvList().add("sushih2");
 
         //#1
         foodItem = new FoodItem("Baked Tonkatsu", "baked_tonkatsu");
@@ -746,7 +804,11 @@ public class LoadData {
         foodItem.setPrice(11.99);
         foodItem.setServing("3-4");
         foodItem.setReadyTime("45");
-        foodItem.setLongDescription("");
+        foodItem.setLongDescription("Pork Shogayaki (豚の生姜焼き; buta no shogayaki) is a dish in Japanese cuisine. " +
+                "Shoga (生姜) means ginger, and yaki (焼き) means grill or fry. It can also be made with beef, but the pork " +
+                "version is so much more popular that the term \"shogayaki\" generally refers only to pork in Japan. " +
+                "It is the second most popular Japanese pork dish after tonkatsu. Shogayaki is a common addition to bento boxes, " +
+                "as it can be eaten cold. However, it is more commonly served hot with rice and shredded cabbage.");
         foodItem.getNutritionTable().put("Calories", "232g");
         foodItem.getNutritionTable().put("Carbohydrates", "4.1g");
         foodItem.getNutritionTable().put("Protein", "23.4g");
@@ -755,8 +817,35 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#4
+        foodItem = new FoodItem("Chicken Katsu", "katsum1");
+        foodItem.setDescription("Deep fried chicken cutlet");
+        foodItem.setPrice(10.99);
+        foodItem.setReadyTime("45");
+        foodItem.setServing("3");
+        foodItem.setLongDescription("Chicken katsu or tori katsu is a Japanese dish " +
+                "which is also popular in Hawaii. It consists of a breaded, deep-fried chicken cutlet one to two " +
+                "centimeters thick that is sliced into bite-sized pieces or strips");
+        foodItem.getNutritionTable().put("Calories", "890g");
+        foodItem.getNutritionTable().put("Carbohydrates", "30.2g");
+        foodItem.getNutritionTable().put("Protein", "61g");
+        foodItem.getNutritionTable().put("Fat", "48g");
+        foodItem.getNutritionTable().put("Fiber", "10g");
+        homeCook.getFoodItems().add(foodItem);
 
         //#5
+        foodItem = new FoodItem("Sushi", "sushim1");
+        foodItem.setDescription("Tuna, Salmon and fluke sushi with tuna roll and cucmber roll");
+        foodItem.setPrice(9.99);
+        foodItem.setReadyTime("30");
+        foodItem.setServing("1-2");
+        foodItem.setLongDescription("Sushi is a food preparation originating in Japan, consisting of cooked vinegared " +
+                "rice combined with other ingredients such as raw uncooked seafood, vegetables and sometimes tropical fruits.");
+        foodItem.getNutritionTable().put("Calories", "140g");
+        foodItem.getNutritionTable().put("Carbohydrates", "28g");
+        foodItem.getNutritionTable().put("Protein", "2.1g");
+        foodItem.getNutritionTable().put("Fat", "5.7g");
+        foodItem.getNutritionTable().put("Fiber", "5.8g");
+        homeCook.getFoodItems().add(foodItem);
 
         homeCooks.add(homeCook);
         //JAPANESE ENDS
@@ -769,14 +858,14 @@ public class LoadData {
         homeCook.setTime("10:00AM – 2:00 PM, 5:00PM – 10:00PM");
         homeCook.setRating(4.0f);
 
-        homeCook.getHsvList().add("doro_wot");
-        homeCook.getHsvList().add("doro_tibs");
-        homeCook.getHsvList().add("zilzil_tibs");
-        homeCook.getHsvList().add("yebeg_tibs");
-        homeCook.getHsvList().add("yemesir_wot");
-        homeCook.getHsvList().add("sambussa");
-        homeCook.getHsvList().add("ethiopian_pastries");
-        homeCook.getHsvList().add("gomen_wot");
+        homeCook.getHsvList().add("doroh1");
+        homeCook.getHsvList().add("ethh1");
+        homeCook.getHsvList().add("gomenh1");
+        homeCook.getHsvList().add("gomenh2");
+        homeCook.getHsvList().add("missirh1");
+        homeCook.getHsvList().add("sambussah1");
+        homeCook.getHsvList().add("missirh2");
+        homeCook.getHsvList().add("doroh2");
 
         //#1
         foodItem = new FoodItem("Doro Wot", "doro_wot");
@@ -916,13 +1005,24 @@ public class LoadData {
         //GREEK STARTS ************************************************************************************************
         homeCook = new HomeCook("Vaino's Kitchen", "(408)-732-1259", "greek.jpg");
         homeCook.setCuisine("Greek");
-        homeCook.setLargeImage("vaino_kitchen");
+        homeCook.setLargeImage("greekkitchen");
         homeCook.setAddress("450 Serra Mall, Stanford, CA 94305");
         homeCook.setTime("10:00AM – 2:00 PM, 5:00PM – 10:00PM");
         homeCook.setRating(3.0f);
 
+        homeCook.getHsvList().add("avgolemonoh1");
+        homeCook.getHsvList().add("gh1");
+        homeCook.getHsvList().add("gh2");
+        homeCook.getHsvList().add("gh3");
+        homeCook.getHsvList().add("gyroh1");
+        homeCook.getHsvList().add("greeksh1");
+        homeCook.getHsvList().add("gh5");
+        homeCook.getHsvList().add("greeksh2");
+        homeCook.getHsvList().add("gh4");
+        homeCook.getHsvList().add("avgolemonoh2");
+
         //#1
-        foodItem = new FoodItem("Greek Salad", "");
+        foodItem = new FoodItem("Greek Salad", "greeksm1");
         foodItem.setDescription("Greek salad, or horiatiki salata, is a rough country salad of juicy tomatoes, " +
                 "crisp cucumber, plump kalamata olives. ");
         foodItem.setReadyTime("30");
@@ -939,7 +1039,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#2
-        foodItem = new FoodItem("Dakos", "");
+        foodItem = new FoodItem("Dakos", "dakosm1");
         foodItem.setDescription("Dry barley rusk, soaked in olive oil and topped with diced tomatoes, herbs, and feta cheese. Capers are often added also");
         foodItem.setReadyTime("20");
         foodItem.setServing("1");
@@ -956,7 +1056,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#3
-        foodItem = new FoodItem("Fried Squid", "");
+        foodItem = new FoodItem("Fried Squid", "squidm1");
         foodItem.setDescription("Batter-coated, deep fried squid, served plain, with salt and lemon on the side.");
         foodItem.setPrice(8.30);
         foodItem.setReadyTime("45");
@@ -972,7 +1072,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#4
-        foodItem = new FoodItem("Loukaniko", "");
+        foodItem = new FoodItem("Loukaniko", "loukanikom1");
         foodItem.setDescription("Sausage made from pork and/or lamb. Typically flavoured with orange zest or leeks.");
         foodItem.setPrice(8.30);
         foodItem.setReadyTime("25");
@@ -988,7 +1088,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#5
-        foodItem = new FoodItem("Avgolemono", "");
+        foodItem = new FoodItem("Avgolemono", "avgolemonom1");
         foodItem.setDescription("'Egg-lemon' soup: chicken, meat, vegetable, or fish broth thickened with eggs, " +
                 "lemon juice, and rice.");
         foodItem.setPrice(8.30);
@@ -1007,7 +1107,7 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         //#6
-        foodItem = new FoodItem("Gyros", "");
+        foodItem = new FoodItem("Gyros", "gyrosm1");
         foodItem.setDescription("'Meat roasted and sliced on a turning spit, typically served with sauces like " +
                 "tzatziki and garnishes (tomato, onions) on pita bread (a popular fast food in Greece and Cyprus).");
         foodItem.setPrice(8.30);
