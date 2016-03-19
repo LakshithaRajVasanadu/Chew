@@ -18,6 +18,15 @@ public class HomeCook implements Serializable{
     private String largeImage;
     private float rating;
 
+    private ArrayList<String> hsvList = new ArrayList<>();
+
+    public ArrayList<String> getHsvList() {
+        return hsvList;
+    }
+
+    public void setHsvList(ArrayList<String> hsvList) {
+        this.hsvList = hsvList;
+    }
 
     public float getRating() {
         return rating;

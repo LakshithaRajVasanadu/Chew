@@ -34,7 +34,6 @@ import java.util.List;
 
 import project.scu.edu.chew.R;
 import project.scu.edu.chew.database.ReviewRatings;
-import project.scu.edu.chew.models.FoodItem;
 import project.scu.edu.chew.models.HomeCook;
 
 // Display kitchen details
@@ -293,10 +292,16 @@ public class KitchenDetailsActivity7 extends AppCompatActivity implements Google
         List<Integer> imageArray = new ArrayList<>();
         System.out.println("[7a]No of Food Items: " + homeCook.getFoodItems().size());
 
-        for(FoodItem foodItem: homeCook.getFoodItems()) {
-            System.out.println("[7b]Food Items image name: " + foodItem.getImagePath());
-            String imagePath = "@drawable/" + foodItem.getImagePath();
-            System.out.println("Image Path:" + imagePath);
+//        for(FoodItem foodItem: homeCook.getFoodItems()) {
+//            System.out.println("[7b]Food Items image name: " + foodItem.getImagePath());
+//            String imagePath = "@drawable/" + foodItem.getImagePath();
+//            System.out.println("Image Path:" + imagePath);
+//            int imageResource = getResources().getIdentifier(imagePath, null, getPackageName());
+//            imageArray.add(imageResource);
+//        }
+
+        for(String imageName: homeCook.getHsvList()) {
+            String imagePath = "@drawable/" + imageName;
             int imageResource = getResources().getIdentifier(imagePath, null, getPackageName());
             imageArray.add(imageResource);
         }

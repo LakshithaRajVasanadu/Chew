@@ -5,7 +5,6 @@ package project.scu.edu.chew.helpers;
  */
 import java.util.List;
 
-import project.scu.edu.chew.activities.KitchenAddressMapsActivity;
 import project.scu.edu.chew.models.FoodItem;
 import project.scu.edu.chew.models.HomeCook;
 
@@ -16,7 +15,7 @@ public class LoadData {
 
     public static void populateData(List<HomeCook> homeCooks) {
 
-        // #1
+        // #1 STARTS *****************************************************************************
         HomeCook homeCook = new HomeCook("Maria's Kitchen", "12345678", "pasta.jpg");
         homeCook.setCuisine("Italian");
         homeCook.setRating(3.5f);
@@ -46,14 +45,22 @@ public class LoadData {
         foodItem.setDescription("Elbow macaroni and yellow cheese");
         homeCook.getFoodItems().add(foodItem);
         homeCooks.add(homeCook);
+        // #1 ENDS *****************************************************************************
 
-        // #2 Swathi's Kitchen -- -STARTS
+        // #2 STARTS *****************************************************************************
         homeCook = new HomeCook("Swathi’s Kitchen", "408-984-9922", "paratha.jpg");
         homeCook.setLargeImage("swathi_kitchen");
         homeCook.setCuisine("Indian");
         homeCook.setAddress("500 El Camino Real, Santa Clara, CA 95050");
         homeCook.setTime("9:00 am to 10:00 pm");
         homeCook.setRating(4.5f);
+
+        homeCook.getHsvList().add("saag_paneer");
+        homeCook.getHsvList().add("dosa");
+        homeCook.getHsvList().add("rice_and_curry");
+        homeCook.getHsvList().add("daal");
+        homeCook.getHsvList().add("chickentikka_masala");
+        homeCook.getHsvList().add("chicken_biryani");
 
         foodItem = new FoodItem("Saag Paneer", "saag_paneer");
         foodItem.setDescription("Spinach cooked with herbs, spices and traditional indian cheese");
@@ -146,9 +153,9 @@ public class LoadData {
         homeCook.getFoodItems().add(foodItem);
 
         homeCooks.add(homeCook);
-        // #2 Swathi's Kitchen -- -ENDS
+        // #2 ENDS *****************************************************************************
 
-        // #3
+        // #3 STARTS *****************************************************************************
         homeCook = new HomeCook("Albert's kitchen", "57777788392", "food12.jpg");
         homeCook.setCuisine("American");
         homeCook.setLargeImage("albert_kitchen");
@@ -156,17 +163,18 @@ public class LoadData {
         homeCook.getFoodItems().add(new FoodItem("Pizza", "pasta"));
         homeCooks.add(homeCook);
         homeCook.setRating(4.0f);
+        // #3 ENDS *****************************************************************************
 
-        // #4
+        // #4 STARTS *****************************************************************************
         homeCook = new HomeCook("Liliana's kitchen", "57777788392", "tacos.jpg");
         homeCook.setCuisine("Mexican");
         homeCook.setLargeImage("liliana_kitchen");
         homeCook.getFoodItems().add(new FoodItem("Burrito", "pasta"));
         homeCook.getFoodItems().add(new FoodItem("Tacos", "pasta"));
         homeCooks.add(homeCook);
+        // #4 ENDS *****************************************************************************
 
-        // #5 WANGS KITCHEN ------ STARTS
-
+        // #5 STARTS *****************************************************************************
         //Home cook object
         homeCook = new HomeCook("Wang's Kitchen", "408-433-9626", "food1.jpg");
         homeCook.setLargeImage("wangs_kitchen");
@@ -174,6 +182,15 @@ public class LoadData {
         homeCook.setAddress("500 El Camino Real, Santa Clara, CA 95050");
         homeCook.setTime("11:30 am to 10:00 pm");
         homeCook.setRating(3.0f);
+
+        homeCook.getHsvList().add("manchow_soup");
+        homeCook.getHsvList().add("wonton_soup");
+        homeCook.getHsvList().add("spring_roll");
+        homeCook.getHsvList().add("calamari");
+        homeCook.getHsvList().add("sizzler");
+        homeCook.getHsvList().add("sfried_rice");
+        homeCook.getHsvList().add("hakka_noodles");
+        homeCook.getHsvList().add("chowmein");
 
         // Food Item1
         foodItem = new FoodItem("Manchow soup", "manchow_soup");
@@ -298,10 +315,10 @@ public class LoadData {
         // add homecook to homecook list
         homeCooks.add(homeCook);
 
-        // #5 WANGS KITCHEN ------ ENDS
+        // #5 ENDS *****************************************************************************
 
 
-        // #6
+        // #6 STARTS *****************************************************************************
         homeCook = new HomeCook("Binh's Kitchen", "12345678", "pho.jpg");
         homeCook.setCuisine("Vietnamese");
         homeCook.setLargeImage("binh_kitchen");
@@ -309,8 +326,11 @@ public class LoadData {
         homeCook.getFoodItems().add(new FoodItem("Pasta", "pasta"));
         homeCooks.add(homeCook);
         homeCook.setRating(3.5f);
+        // #6 ENDS *****************************************************************************
 
-        // #7
+
+
+        // #7 STARTS *****************************************************************************
         homeCook = new HomeCook("Chiko's Kitchen", "12345678", "ramen.jpg");
         homeCook.setCuisine("Japanese");
         homeCook.setLargeImage("chicko_kitchen");
@@ -318,14 +338,27 @@ public class LoadData {
         homeCook.getFoodItems().add(new FoodItem("Pasta", "pasta"));
         homeCooks.add(homeCook);
         homeCook.setRating(4.5f);
+        // #7 ENDS *****************************************************************************
 
-        // #8 Berta's Kitchen  ------ STARTS
+
+
+
+        // #8 STARTS *****************************************************************************
         homeCook = new HomeCook("Berta's Kitchen", "408-327-9045", "meal.jpg");
         homeCook.setLargeImage("berta_kitchen");
         homeCook.setCuisine("Ethiopian");
         homeCook.setAddress("1320 Saratoga Ave, San Jose, CA 95129");
         homeCook.setTime("10:00AM – 2:00 PM, 5:00PM – 10:00PM");
         homeCook.setRating(4.0f);
+
+        homeCook.getHsvList().add("doro_wot");
+        homeCook.getHsvList().add("doro_tibs");
+        homeCook.getHsvList().add("zilzil_tibs");
+        homeCook.getHsvList().add("yebeg_tibs");
+        homeCook.getHsvList().add("yemesir_wot");
+        homeCook.getHsvList().add("sambussa");
+        homeCook.getHsvList().add("ethiopian_pastries");
+        homeCook.getHsvList().add("gomen_wot");
 
 //1st
         foodItem = new FoodItem("Doro Wot", "doro_wot");
@@ -337,9 +370,10 @@ public class LoadData {
         foodItem.getNutritionTable().put("Protein", "43.6g");
         foodItem.getNutritionTable().put("Fat", "19.2g");
         foodItem.getNutritionTable().put("Fiber", "1.3g");
-        homeCook.getFoodItems().add(foodItem);
         foodItem.setServing("2-3");
         foodItem.setReadyTime("40");
+        homeCook.getFoodItems().add(foodItem);
+
 
 //2nd
         foodItem = new FoodItem("Doro Tibbs", "doro_tibs");
@@ -448,9 +482,9 @@ public class LoadData {
 
 
         homeCooks.add(homeCook);
-        // #8 Berta's Kitchen  ------ ENDS
+        // #8 ENDS *****************************************************************************
 
-        // #9
+        // #9 STARTS *****************************************************************************
         homeCook = new HomeCook("Vaino's Kitchen", "12345678", "greek.jpg");
         homeCook.setCuisine("Greek");
         homeCook.setLargeImage("vaino_kitchen");
@@ -458,8 +492,10 @@ public class LoadData {
         homeCook.getFoodItems().add(new FoodItem("Pasta", "pasta"));
         homeCooks.add(homeCook);
         homeCook.setRating(3.0f);
+        // #9 ENDS *****************************************************************************
 
-        // #10
+
+        // #10 STARTS *****************************************************************************
         homeCook = new HomeCook("Clara's Kitchen", "12345678", "paella.jpg");
         homeCook.setCuisine("Spanish");
         homeCook.setLargeImage("clara_kitchen");
@@ -467,6 +503,7 @@ public class LoadData {
         homeCook.getFoodItems().add(new FoodItem("Pasta", "pasta"));
         homeCooks.add(homeCook);
         homeCook.setRating(3.5f);
+        // #10 ENDS *****************************************************************************
 
     }
 }
