@@ -85,7 +85,7 @@ public class CartActivity10 extends BaseActivity implements IVoiceControl {
         mBuilder.setSmallIcon(R.drawable.gobble_logo).setColor(Color.rgb(255, 153, 0));
         mBuilder.setVibrate(new long[]{100, 250}).setDefaults(Notification.DEFAULT_SOUND);
         mBuilder.setContentTitle("Notification Alert, Click Me!");
-        mBuilder.setContentText("Your order has been successfully placed!");
+        mBuilder.setContentText("Your order is ready for pick up!");
 
         Intent resultIntent = new Intent(this, OrderStausActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);

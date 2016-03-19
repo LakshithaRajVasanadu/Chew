@@ -69,7 +69,7 @@ public class MainKitchenActivity6 extends AppCompatActivity implements GoogleApi
         homeCook = (HomeCook)i.getSerializableExtra("homecook");
 
         homeCookLatLng = (KitchenAddressMapsActivity.getAddressFromLocation1(homeCook.getAddress(), getApplicationContext()));
-        
+
         setContentView(R.layout.activity_main_kitchen6);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
