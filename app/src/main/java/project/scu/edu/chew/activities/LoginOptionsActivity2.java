@@ -2,13 +2,22 @@ package project.scu.edu.chew.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -28,26 +37,87 @@ public class LoginOptionsActivity2 extends AppCompatActivity {
     Button skipButton;
     Button loginButton;
     Button signUpButton;
-    Button fbButton;
-    Button instaButton;
-    Button twiButton;
-    Button googleButton;
+//    Button fbButton;
+//    Button instaButton;
+//    Button twiButton;
+//    Button googleButton;
 
     static List<User> users;
 
     private Firebase mFirebaseRef;
 
+    private CallbackManager callbackManager;
+    private TextView textView;
+
+    private AccessTokenTracker accessTokenTracker;
+    private ProfileTracker profileTracker;
+
+    private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
+        @Override
+        public void onSuccess(LoginResult loginResult) {
+            System.out.println("In onsuccess..");
+            AccessToken accessToken = loginResult.getAccessToken();
+            Profile profile = Profile.getCurrentProfile();
+            if(profile!= null) {
+                startUserSession(profile.getName());
+            }
+            Intent intent = new Intent(LoginOptionsActivity2.this, HCListActivity5.class);
+            if (intent != null)
+                startActivity(intent);
+
+
+            //displayMessage(profile);
+        }
+
+        @Override
+        public void onCancel() {
+
+        }
+
+        @Override
+        public void onError(FacebookException e) {
+
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
+        callbackManager = CallbackManager.Factory.create();
+
+        accessTokenTracker= new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(AccessToken oldToken, AccessToken newToken) {
+
+            }
+        };
+
+        profileTracker = new ProfileTracker() {
+            @Override
+            protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
+                //displayMessage(newProfile);
+            }
+        };
+
+        accessTokenTracker.startTracking();
+        profileTracker.startTracking();
         setContentView(R.layout.activity_login_options2);
+
+        LoginButton fbloginButton = (LoginButton) findViewById(R.id.fblogin_button);
+
+        fbloginButton.setReadPermissions("user_friends");
+        fbloginButton.registerCallback(callbackManager, callback);
 
         skipButton = (Button) findViewById(R.id.skipButton);
         skipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startUserSession();
+                startUserSession("guest");
                 Intent intent = new Intent(LoginOptionsActivity2.this, HCListActivity5.class);
                 if (intent != null)
                     startActivity(intent);
@@ -76,100 +146,104 @@ public class LoginOptionsActivity2 extends AppCompatActivity {
         });
 
 
-        fbButton = (Button) findViewById(R.id.fbButton);
-        fbButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                List<Intent> targetShareIntents=new ArrayList<Intent>();
-                Intent appIntent1 = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/"));
-                if(appIntent1 != null)
-                    targetShareIntents.add(appIntent1);
-
-                Intent appIntent2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/"));
-                if(appIntent2 != null)
-                    targetShareIntents.add(appIntent2);
-
-                if(!targetShareIntents.isEmpty()) {
-                    Intent chooserIntent = Intent.createChooser(targetShareIntents.remove(0), "Choose an app to Login");
-                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetShareIntents.toArray(new Parcelable[]{}));
-                    startActivity(chooserIntent);
-                }
-            }
-        });
-
-        instaButton = (Button) findViewById(R.id.instaButton);
-        instaButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                List<Intent> targetShareIntents=new ArrayList<Intent>();
-                Intent appIntent1 = new Intent(Intent.ACTION_VIEW);
-                appIntent1.setPackage("com.instagram.android");
-                if(appIntent1 != null)
-                    targetShareIntents.add(appIntent1);
-
-                Intent appIntent2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/"));
-                if(appIntent2 != null)
-                    targetShareIntents.add(appIntent2);
-
-                if(!targetShareIntents.isEmpty()) {
-                    Intent chooserIntent = Intent.createChooser(targetShareIntents.remove(0), "Choose an app to Login");
-                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetShareIntents.toArray(new Parcelable[]{}));
-                    startActivity(chooserIntent);
-                }
-
-            }
-        });
-
-        twiButton = (Button) findViewById(R.id.twitterButton);
-        twiButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                List<Intent> targetShareIntents=new ArrayList<Intent>();
-                Intent appIntent1 = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user"));
-               // appIntent1.setPackage("com.twitter.android");
-                if(appIntent1 != null)
-                    targetShareIntents.add(appIntent1);
-
-//                Intent appIntent2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/#!/"));
+//        fbButton = (Button) findViewById(R.id.fbButton);
+//        fbButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                List<Intent> targetShareIntents=new ArrayList<Intent>();
+//                Intent appIntent1 = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/"));
+//                if(appIntent1 != null)
+//                    targetShareIntents.add(appIntent1);
+//
+//                Intent appIntent2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/"));
 //                if(appIntent2 != null)
 //                    targetShareIntents.add(appIntent2);
-
-                if(!targetShareIntents.isEmpty()) {
-                    Intent chooserIntent = Intent.createChooser(targetShareIntents.remove(0), "Choose an app to Login");
-                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetShareIntents.toArray(new Parcelable[]{}));
-                    startActivity(chooserIntent);
-                }
-
-            }
-        });
-
-        googleButton = (Button) findViewById(R.id.gButton);
-        googleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                List<Intent> targetShareIntents=new ArrayList<Intent>();
-                Intent appIntent1 = new Intent(Intent.ACTION_VIEW);
-                appIntent1.setClassName("com.google.android.apps.plus",
-                        "com.google.android.apps.plus.phone.UrlGatewayActivity");
-                if(appIntent1 != null)
-                    targetShareIntents.add(appIntent1);
-
-                Intent appIntent2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/"));
-                if(appIntent2 != null)
-                    targetShareIntents.add(appIntent2);
-
-                if(!targetShareIntents.isEmpty()) {
-                    Intent chooserIntent = Intent.createChooser(targetShareIntents.remove(0), "Choose an app to Login");
-                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetShareIntents.toArray(new Parcelable[]{}));
-                    startActivity(chooserIntent);
-                }
-
-            }
-        });
+//
+//                if(!targetShareIntents.isEmpty()) {
+//                    Intent chooserIntent = Intent.createChooser(targetShareIntents.remove(0), "Choose an app to Login");
+//                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetShareIntents.toArray(new Parcelable[]{}));
+//                    startActivity(chooserIntent);
+//                }
+//            }
+//        });
+//        fbButton.setVisibility(View.INVISIBLE);
+//
+//        instaButton = (Button) findViewById(R.id.instaButton);
+//        instaButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                List<Intent> targetShareIntents=new ArrayList<Intent>();
+//                Intent appIntent1 = new Intent(Intent.ACTION_VIEW);
+//                appIntent1.setPackage("com.instagram.android");
+//                if(appIntent1 != null)
+//                    targetShareIntents.add(appIntent1);
+//
+//                Intent appIntent2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/"));
+//                if(appIntent2 != null)
+//                    targetShareIntents.add(appIntent2);
+//
+//                if(!targetShareIntents.isEmpty()) {
+//                    Intent chooserIntent = Intent.createChooser(targetShareIntents.remove(0), "Choose an app to Login");
+//                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetShareIntents.toArray(new Parcelable[]{}));
+//                    startActivity(chooserIntent);
+//                }
+//
+//            }
+//        });
+//        instaButton.setVisibility(View.INVISIBLE);
+//
+//        twiButton = (Button) findViewById(R.id.twitterButton);
+//        twiButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                List<Intent> targetShareIntents=new ArrayList<Intent>();
+//                Intent appIntent1 = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user"));
+//               // appIntent1.setPackage("com.twitter.android");
+//                if(appIntent1 != null)
+//                    targetShareIntents.add(appIntent1);
+//
+////                Intent appIntent2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/#!/"));
+////                if(appIntent2 != null)
+////                    targetShareIntents.add(appIntent2);
+//
+//                if(!targetShareIntents.isEmpty()) {
+//                    Intent chooserIntent = Intent.createChooser(targetShareIntents.remove(0), "Choose an app to Login");
+//                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetShareIntents.toArray(new Parcelable[]{}));
+//                    startActivity(chooserIntent);
+//                }
+//
+//            }
+//        });
+//        twiButton.setVisibility(View.INVISIBLE);
+//
+//        googleButton = (Button) findViewById(R.id.gButton);
+//        googleButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                List<Intent> targetShareIntents=new ArrayList<Intent>();
+//                Intent appIntent1 = new Intent(Intent.ACTION_VIEW);
+//                appIntent1.setClassName("com.google.android.apps.plus",
+//                        "com.google.android.apps.plus.phone.UrlGatewayActivity");
+//                if(appIntent1 != null)
+//                    targetShareIntents.add(appIntent1);
+//
+//                Intent appIntent2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/"));
+//                if(appIntent2 != null)
+//                    targetShareIntents.add(appIntent2);
+//
+//                if(!targetShareIntents.isEmpty()) {
+//                    Intent chooserIntent = Intent.createChooser(targetShareIntents.remove(0), "Choose an app to Login");
+//                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetShareIntents.toArray(new Parcelable[]{}));
+//                    startActivity(chooserIntent);
+//                }
+//
+//            }
+//        });
+//        googleButton.setVisibility(View.INVISIBLE);
 
         Firebase.setAndroidContext(this);
 
@@ -225,10 +299,10 @@ public class LoginOptionsActivity2 extends AppCompatActivity {
         return user;
     }
 
-    public void startUserSession() {
+    public void startUserSession(String name) {
 
         User currentUser = new User();
-        currentUser.setName("guest");
+        currentUser.setName(name);
 
         SharedPreferences gobblePreferences = getSharedPreferences("GOBBLE_PREFS", MODE_PRIVATE);
         SharedPreferences.Editor editor = gobblePreferences.edit();
@@ -238,5 +312,38 @@ public class LoginOptionsActivity2 extends AppCompatActivity {
         String json = gson.toJson(newSession);
         editor.putString("currentSession", json);
         editor.commit();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+
+    }
+
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        accessTokenTracker.stopTracking();
+        profileTracker.stopTracking();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        System.out.println("In resume..");
+        Profile profile = Profile.getCurrentProfile();
+
+//        if(profile != null) {
+//            startUserSession(profile.getName());
+//            Intent intent = new Intent(LoginOptionsActivity2.this, HCListActivity5.class);
+//            if (intent != null)
+//                startActivity(intent);
+//
+//        }
+
+        //displayMessage(profile);
     }
 }
